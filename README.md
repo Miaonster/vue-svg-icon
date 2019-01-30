@@ -1,8 +1,19 @@
-# vue-svg-icon  
-> a solution for multicolor svg icons in vue2
-> [轻量的Vue2多色动态svg图标方案 中文版说明](#chineseversion)
+vue-svg-icon
+============
 
-##### v1.2.9
+> A solution for multicolor SVG icons in Vue2.0
+
+> 轻量的Vue2多色动态svg图标方案 [中文版说明](#chineseversion)
+
+## For Nuxt SSR
+
+```
+build: {
+   transpile: ['vue-svg-icon'],
+}
+```
+
+## v1.2.9
 
 **demo:** https://cenkai88.github.io/vue-svg-icon/demo/  
 **features:** 
@@ -14,25 +25,33 @@
 - **an awesome SVG icon site [iconfont](http://www.iconfont.cn)**
 
 ## Usage
+
 ### 1. install
+
 ```
 npm install vue-svg-icon --save-dev
 ```
+
 ### 2. put your svg into src/svg/
+
 - **this dir are not supported to be configured now**  
 - **src folder should be in the same folder with node_modules**
 
 ### 3. import vue-svg-icon in your main.js
+
 ```
 import Icon from 'vue-svg-icon/Icon.vue';
 Vue.component('icon', Icon);  
 ```
+
 ### 4. use the svg icon in your vue!
+
 ```
 <icon name="chameleon" :scale="20"></icon>
 ```
 
 ### Edit svg pictures in illustrator
+
 - ~~Notice all the rect or line should be converted to path.~~(not anymore since v1.1.0)   
 - When saving the SVG, please choose 'Save As' and set CSS Properties as 'Presentation Attributes' in advanced settings.
 - Pls set the color of the part that can be changed through css as #000000 in illustrator，if you want to use black in SVG but don't want it to be altered by css, pls set it as #000001
@@ -40,11 +59,15 @@ Vue.component('icon', Icon);
 - recommended size of SVG is 200*200
 
 ### Trouble Shooting
+
 1. cannot find corresponding .svg file in vue-svg-icon/svg when you inject it in main.js, please keep the name in main.js and the filename exactly same.
+
 ```
 [Vue warn]: Invalid prop: custom validator check failed for prop "name". 
 ```
+
 2. cannot find the "svg" fold in src folder
+
 ```
 This dependency was not found:
    
@@ -52,7 +75,9 @@ This dependency was not found:
    
    To install it, you can run: npm install --save !xml-loader!../../src/svg
 ```
+
 3. pls check the .babelrc file of root folder
+
 ```
 Module build failed: ReferenceError: Unknown plugin "transform-runtime"
  specified in "/Users/test/Desktop/Dev/github/.babelrc" at 0, attempted to resolve relative to 
@@ -60,8 +85,11 @@ Module build failed: ReferenceError: Unknown plugin "transform-runtime"
 ```
 
 ## 中文版本说明
+
 **示例:** https://cenkai88.github.io/vue-svg-icon/demo/  
+
 **特点:** 
+
 - **不再需要通过inject注册SVG**
 - 支持SVG文件中path, circle, ellipse, rect, line, polyline, polygon 标签
 - 支持SVG文件中存在编组的标签
@@ -69,6 +97,7 @@ Module build failed: ReferenceError: Unknown plugin "transform-runtime"
 - 可通过css的color属性动态地调整svg中**某一部分**的颜色
 
 ### 1. 安装
+
 ```
 npm install vue-svg-icon --save-dev
 ```
@@ -79,16 +108,20 @@ npm install vue-svg-icon --save-dev
 - src文件夹应和node_modules在同一个文件夹下
 
 ### 3. 在项目的main.js入口引入vue-svg-icon
+
 ```
 import Icon from 'vue-svg-icon/Icon.vue';
 Vue.component('icon', Icon); 
 ```
+
 ### 4. 在网页中使用icon标签就可以啦！
+
 ```
 <icon name="chameleon" scale="20"></icon>
 ```
 
 ### 在illustrator中编辑svg图片时
+
 - ~~注意illustrator中所有的矩形线段等等需转成复合路径再保存。~~（v1.1.0后不再需要)
 - 第一次编辑完保存时，请选择"另存为"，在"高级选项"中将"css属性"设置成**演示文稿属性**  
 - 需要通过css动态设置颜色等部分请将填充色设为纯黑(#000000)，如果想设置黑色但不受SVG的color影响请将填充色设为(#000001)
