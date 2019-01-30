@@ -8,6 +8,7 @@
     "compile": "babel -d lib/ utils/",
     "prepublish": "npm run compile"
   },
+  "main": "Icon.vue",
   "keywords": [
     "svg",
     "icon",
